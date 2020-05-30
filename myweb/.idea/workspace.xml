@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="eapp-corp-quick-start:Web exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a267ad63-5336-4469-98ae-380cc0e8acd7" name="Default Changelist" comment="2020.5.30&#10;基本完整了.&#10;包含的功能：　&#10;１．ｓｐｒｉｎｇｂｏｏｔ　ｓｅｃｕｒｉｔｙ的基本使用&#10;２．分页：ｐａｇｅｈｅｌｐｅｒ的硬分页和自定义数组分页&#10;３．ｅｈｃａｃｈｅ的基本使用&#10;４．导入导出ｅｘｃｅｌ的基本功能，　ｅａｓｙｐｏｉ的基本使用&#10;５．Ａｊａｘ的异步请求&#10;６．ｍｙｂａｔｉｓ的ｍａｐｐｅｒ注解用法&#10;７．ｔｈｙｍｅｌｅａｆ的基本使用&#10;８．ａｕｔｏｃｏｍｐｌｅｔｅ插件的使用&#10;９．ｂｏｏｔｓｔｒａｐ　多选插件">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/DeviceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/DeviceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/DeviceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/DeviceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap-multiselect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap-multiselect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/jquery.autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/jquery.autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/advQuery.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/advQuery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/deviceForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/deviceForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/devices.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/devices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employeeForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employeeForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wtFragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wtFragment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wtQueryFlagment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wtQueryFlagment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/xj.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/xj.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/xjList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/xjList.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dddatabase@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dddatabase@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="dddatabase@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="dddatabase: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Ｗ．Ｂ．Ａｎ" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1a4PHFlpMYxb4pGOIib43Nv9YTe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite&#10;mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.54655296" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\zhplan\myweb\src\main\resources\static" />
+      <recent name="F:\zhplan\myweb\src\main\resources" />
+      <recent name="D:\zhplan\myweb\src\main\resources\static" />
+      <recent name="D:\zhplan\myweb\src\main\resources\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\zhplan\myweb\src\main\resources\static\images" />
+      <recent name="F:\zhplan\myweb\src\main\resources\static\sql" />
+      <recent name="F:\zhplan\myweb\src\main\resources\static\js" />
+      <recent name="F:\zhplan\myweb\src\main\resources\static\css" />
+      <recent name="D:\zhplan\myweb\src\main\resources\static\css" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="ApplicationTests.ArrayPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eapp-corp-quick-start" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.ApplicationTests" />
+      <option name="METHOD_NAME" value="ArrayPageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zplan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.ApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests.initUserInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eapp-corp-quick-start" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.ApplicationTests" />
+      <option name="METHOD_NAME" value="initUserInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests.linqTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zplan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.ApplicationTests" />
+      <option name="METHOD_NAME" value="linqTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests.pageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eapp-corp-quick-start" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com" />
+      <option name="MAIN_CLASS_NAME" value="com.ApplicationTests" />
+      <option name="METHOD_NAME" value="pageTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eapp-corp-quick-start" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ApplicationTests.ArrayPageTest" />
+        <item itemvalue="JUnit.ApplicationTests.pageTest" />
+        <item itemvalue="JUnit.ApplicationTests.initUserInfo" />
+        <item itemvalue="JUnit.ApplicationTests.linqTest" />
+        <item itemvalue="JUnit.ApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a267ad63-5336-4469-98ae-380cc0e8acd7" name="Default Changelist" comment="" />
+      <created>1585991802399</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585991802399</updated>
+      <workItem from="1585991803523" duration="21000" />
+      <workItem from="1585991856140" duration="7743000" />
+      <workItem from="1586048223268" duration="20048000" />
+      <workItem from="1586173033249" duration="1412000" />
+      <workItem from="1586174888944" duration="4000" />
+      <workItem from="1586175222580" duration="238000" />
+      <workItem from="1586175480058" duration="1931000" />
+      <workItem from="1586177435478" duration="459000" />
+      <workItem from="1586177917755" duration="1741000" />
+      <workItem from="1586181699169" duration="3781000" />
+      <workItem from="1586186193336" duration="490000" />
+      <workItem from="1586228377609" duration="135000" />
+      <workItem from="1586228538418" duration="7474000" />
+      <workItem from="1586248203396" duration="170000" />
+      <workItem from="1586248692048" duration="7991000" />
+      <workItem from="1586474216062" duration="9765000" />
+      <workItem from="1586697435550" duration="620000" />
+      <workItem from="1586789350225" duration="704000" />
+      <workItem from="1586822359893" duration="3190000" />
+      <workItem from="1586853918364" duration="2728000" />
+      <workItem from="1586962813408" duration="5216000" />
+      <workItem from="1586996305953" duration="5360000" />
+      <workItem from="1587030804507" duration="14324000" />
+      <workItem from="1587078968978" duration="5000" />
+      <workItem from="1587082829346" duration="2949000" />
+      <workItem from="1587106222744" duration="6902000" />
+      <workItem from="1587166491429" duration="7042000" />
+      <workItem from="1587203045639" duration="399000" />
+      <workItem from="1587212732382" duration="4366000" />
+      <workItem from="1587365037310" duration="261000" />
+      <workItem from="1587365635047" duration="5340000" />
+      <workItem from="1587371774796" duration="320000" />
+      <workItem from="1587372526372" duration="283000" />
+      <workItem from="1587459887824" duration="8758000" />
+      <workItem from="1587660246957" duration="677000" />
+      <workItem from="1587697977422" duration="12851000" />
+      <workItem from="1587737835727" duration="1117000" />
+      <workItem from="1587777782264" duration="5625000" />
+      <workItem from="1588125981797" duration="28342000" />
+      <workItem from="1588203560728" duration="2274000" />
+      <workItem from="1588211255766" duration="25501000" />
+      <workItem from="1588287056108" duration="44065000" />
+      <workItem from="1588379777999" duration="8554000" />
+      <workItem from="1588576252784" duration="28183000" />
+      <workItem from="1588638293444" duration="42088000" />
+      <workItem from="1588813154698" duration="9406000" />
+      <workItem from="1588848064049" duration="6376000" />
+      <workItem from="1588913035044" duration="17454000" />
+      <workItem from="1588941070802" duration="13909000" />
+      <workItem from="1588982226473" duration="22425000" />
+      <workItem from="1589032125989" duration="6822000" />
+      <workItem from="1589067188059" duration="7381000" />
+      <workItem from="1589076910540" duration="4892000" />
+      <workItem from="1589086832699" duration="2838000" />
+      <workItem from="1589095430590" duration="1828000" />
+      <workItem from="1589119970764" duration="6456000" />
+      <workItem from="1589157625049" duration="22047000" />
+      <workItem from="1589194502673" duration="6921000" />
+      <workItem from="1589242053651" duration="10902000" />
+      <workItem from="1589268647781" duration="1540000" />
+      <workItem from="1589270219353" duration="16953000" />
+      <workItem from="1589359351786" duration="240000" />
+      <workItem from="1589374068905" duration="415000" />
+      <workItem from="1589377043680" duration="212000" />
+      <workItem from="1589377324740" duration="15000" />
+      <workItem from="1589377366839" duration="2079000" />
+      <workItem from="1589421862073" duration="1709000" />
+      <workItem from="1589424090132" duration="691000" />
+      <workItem from="1589435248551" duration="10286000" />
+      <workItem from="1589498964904" duration="23399000" />
+      <workItem from="1589580991354" duration="10715000" />
+      <workItem from="1589597146023" duration="5697000" />
+      <workItem from="1589619193175" duration="21447000" />
+      <workItem from="1589714228527" duration="1275000" />
+      <workItem from="1589808896288" duration="510000" />
+      <workItem from="1589848774598" duration="685000" />
+      <workItem from="1589849684362" duration="292000" />
+      <workItem from="1589959471412" duration="1217000" />
+      <workItem from="1590044610706" duration="16000" />
+      <workItem from="1590207741634" duration="929000" />
+      <workItem from="1590210264251" duration="422000" />
+      <workItem from="1590285885803" duration="319000" />
+      <workItem from="1590286321995" duration="5000" />
+      <workItem from="1590308095521" duration="22186000" />
+      <workItem from="1590363700667" duration="8580000" />
+      <workItem from="1590394372849" duration="97000" />
+      <workItem from="1590396371740" duration="14833000" />
+      <workItem from="1590792387794" duration="17180000" />
+      <workItem from="1590821458382" duration="4272000" />
+    </task>
+    <task id="LOCAL-00001" summary="2020.4.7">
+      <created>1586236214061</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586236214061</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="2020.4.7" />
+    <MESSAGE value="2020.5.30&#10;基本完整了.&#10;包含的功能：　&#10;１．ｓｐｒｉｎｇｂｏｏｔ　ｓｅｃｕｒｉｔｙ的基本使用&#10;２．分页：ｐａｇｅｈｅｌｐｅｒ的硬分页和自定义数组分页&#10;３．ｅｈｃａｃｈｅ的基本使用&#10;４．导入导出ｅｘｃｅｌ的基本功能，　ｅａｓｙｐｏｉ的基本使用&#10;５．Ａｊａｘ的异步请求&#10;６．ｍｙｂａｔｉｓ的ｍａｐｐｅｒ注解用法&#10;７．ｔｈｙｍｅｌｅａｆ的基本使用&#10;８．ａｕｔｏｃｏｍｐｌｅｔｅ插件的使用&#10;９．ｂｏｏｔｓｔｒａｐ　多选插件" />
+    <option name="LAST_COMMIT_MESSAGE" value="2020.5.30&#10;基本完整了.&#10;包含的功能：　&#10;１．ｓｐｒｉｎｇｂｏｏｔ　ｓｅｃｕｒｉｔｙ的基本使用&#10;２．分页：ｐａｇｅｈｅｌｐｅｒ的硬分页和自定义数组分页&#10;３．ｅｈｃａｃｈｅ的基本使用&#10;４．导入导出ｅｘｃｅｌ的基本功能，　ｅａｓｙｐｏｉ的基本使用&#10;５．Ａｊａｘ的异步请求&#10;６．ｍｙｂａｔｉｓ的ｍａｐｐｅｒ注解用法&#10;７．ｔｈｙｍｅｌｅａｆ的基本使用&#10;８．ａｕｔｏｃｏｍｐｌｅｔｅ插件的使用&#10;９．ｂｏｏｔｓｔｒａｐ　多选插件" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ApplicationTests.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((IntersectIterator)intersect).current" custom="com.bestvike.linq.enumerable.IntersectIterator" />
+      </configuration>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="response" />
+        <watch expression="response" />
+        <watch expression="viewXj.sb_name" />
+        <watch expression="demoModel.myvalue" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

@@ -1,0 +1,53 @@
+server:
+  port: 8080
+spring:
+  servlet: #上传配置
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+      file-size-threshold: 0
+      location:
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml
+
+  security:
+    user:
+      name: admin
+      password: 123456
+
+  profiles:
+    active: customer
+  datasource:
+    username: root
+    password: w8422410
+    url: jdbc:mysql://localhost:3306/dddatabase?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #连接池的配置信息
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #配置监控统计的拦截filter,去掉后监控界面sql无法统计,'wall'用于防火墙
+    #filters: stat,wall,log4j
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+
+
+
+
+

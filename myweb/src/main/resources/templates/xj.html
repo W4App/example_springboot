@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <script th:src="@{/js/jquery.autocomplete.js}" type="text/javascript"></script>
+    <link rel="text/css" th:href="@{/css/autocomplete.min.css}">
+    <script th:src="@{/js/bootstrap-select.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}">
+    <script th:src="@{/js/bootstrap-multiselect.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-multiselect.css}">
+    <link rel="stylesheet" th:href="@{/css/my.css}">
+    <meta charset="UTF-8">
+    <title>任务核查销记</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation" th:fragment="nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/index">生产任务核查</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li th:switch="${#authentication.name.equals('anonymousUser')}">
+                <a th:case="true" th:href="@{/login}">
+                    <span class="glyphicon glyphicon-user"></span>
+                    登录
+                </a>
+                <a th:case="false">
+                    <span class="glyphicon glyphicon-user"
+                          th:text="'当前登录: '+${#authentication.principal.userName}"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" th:href="@{/logout}">
+                    <span class="glyphicon glyphicon-log-in">
+                </span> 退出登录
+                </a>
+            </li>
+        </ul>
+
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle " data-toggle="dropdown" href="#">
+                        功能菜单 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/advQuery}">未检修情况查询</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#">
+                            预留菜单
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" th:fragment="menu">
+            <ul class="nav nav-tabs nav-stacked" id="main-nav" style="">
+                <li>
+                    <a href="/index">
+                        <i class="glyphicon glyphicon-th-large"></i>
+                        首页
+                    </a>
+                </li>
+                <li class="" id="xj">
+                    <a href="/tt">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        完成情况录入
+
+                    </a>
+                </li>
+                <li id="query">
+                    <a href="/xjList?query=今日">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        查询
+                    </a>
+                </li>
+                <li id="employee">
+                    <a href="/employee">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        人员管理
+                    </a>
+                </li>
+                <li id="device">
+                    <a href="/devices">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        设备管理
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-10">
+            <form class="form-horizontal"
+                  method="post"
+                  th:action="@{/{action}(action=${xjModel.action})}"
+                  th:id="form1"
+                  th:object="${xjModel}"
+            >
+                <div class="contentDiv">
+
+                    <input name="id" th:value="${1}" type="hidden"/>
+                    <div class="col-md-5">
+                        <legend>
+                            <strong>检修完成情况录入</strong>
+                        </legend>
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="zn_name">站名:</label>
+                            <div class="col-md-4">
+                                <select class="form-control"
+                                        id="zn_name"
+                                        name="zname"
+                                        style="width: 220px"
+                                        th:field="${xjModel.zn}"
+                                        th:selected="sbchg"
+                                >
+                                    <option th:text="${xjModel.znCookie}" th:value="${xjModel.znCookie}"></option>
+                                    <option th:each="z:${xjModel.znNames}"
+                                            th:text="${z}"
+                                            th:value="${z}"
+                                    ></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="sb_name">设备名称:</label>
+                            <div class="col-md-4">
+                                <input autocomplete="off" class="form-control" id="sb_name" style="width: 220px"
+                                       th:field="*{sb_name}" type="text">
+                                <span class="myValid" th:error="*{sb_name}"
+                                      th:if="${#fields.hasErrors('sb_name')}"
+                                >设备名称不能为空!</span>
+
+                                <span class="myValid"
+                                      hidden="hidden"
+                                      id="tipWrong">无此设备先添加!</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="worker_name">检修人:</label>
+                            <div class="col-md-4">
+                                <select class="form-control"
+                                        id="worker_name"
+                                        multiple="multiple"
+                                        th:field="*{jx_name}">
+                                    <!--                                    <option th:each="jxr:${xjModel.jxrs}" th:value="${jxr}" th:text="${jxr}"></option>-->
+                                </select>
+                                <span class="myValid" th:error="*{jx_name}"
+                                      th:if="${#fields.hasErrors('jx_name')}">
+                                    检修人不能为空!
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="demo_name3">检修日期:</label>
+                            <div class="col-md-2">
+                                <input class="form-control" id="demo_name3" name="jx_date" style="width: 220px"
+                                       th:field="*{jx_date}"
+                                       type="date"
+                                >
+
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="demo_name6">检修内容:</label>
+                            <div class="col-md-5">
+                                <textarea autofocus
+                                          class="form-control" id="demo_name6"
+                                          name="name"
+                                          style="width: 220px"
+                                          th:field="*{jx_content}"
+                                >
+                                </textarea>
+                                <span class="myValid" th:error="*{jx_content}"
+
+                                      th:if="${#fields.hasErrors('jx_content')}">
+                                    检修内容不能为空!
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="demo_name7">未检记录:</label>
+                            <div class="col-md-5">
+                                <textarea class="form-control" id="demo_name7" name="name"
+                                          placeholder="输入遗留项目,多条用@分开,没有不填."
+                                          style="width: 220px"
+                                          th:field="*{nojx_content}"
+                                >
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="demo_name8">任务类型:</label>
+                            <div class="col-md-6">
+                                <select class="selectpicker" id="demo_name8"
+                                        th:field="*{jx_type}"
+                                >
+                                    <option value="年表任务">年表任务</option>
+                                    <option value="月表任务">月表任务</option>
+                                    <option value="周计划">周计划</option>
+                                    <option value="其他整治">其他整治</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-md-4 control-label" for="demo_name9">销记:</label>
+                            <div class="col-md-6">
+                                <input CLASS="checkbox" id="demo_name9" th:field="*{xj}" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <legend>
+                            <strong>检修未完成项目</strong>
+                        </legend>
+                        <div id="wtinsert"/>
+
+                    </div>
+
+
+                </div>
+                <div class="form-group col-sm-10">
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <input class="btn btn-primary"
+                               id="xj_submit"
+                               name="done"
+                               type="submit"
+                               value="继续录入"
+                        />
+                        <input class="btn btn-primary"
+                               id="xj_submit1"
+                               name="done"
+                               type="submit"
+                               value="完成"
+                        />
+
+                        <input class="btn" onclick="history.back()" type="button" value="返回"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    let testArr = [];
+    // 文档加载完成后, 根据cookie加载设备列表
+    $(document).ready(
+        function () {
+            //ajax请求设备列表
+            $.ajax({
+                url: '/getSbName',
+                type: 'POST',
+                data: {znName: $("#zn_name option:selected").val()},
+                success: function (data) {
+                    testArr = data;
+                    //console.log(data)
+                    $('#sb_name').autocomplete(
+                        {
+                            lookup: testArr
+                        }
+                    )
+                }
+            })
+        }
+    );
+    $("#zn_name").bind("change", function () {
+        //拿到站名, 异步获取设备列表
+        $.ajax({
+            url: '/getSbName',
+            type: 'POST',
+            data: {znName: $("#zn_name option:selected").val()},
+            success: function (data) {
+                testArr = data;
+                //console.log(data)
+                $('#sb_name').autocomplete(
+                    {
+                        lookup: testArr
+                    }
+                )
+            }
+        });
+//这里动态加载人员优先列表
+        $.ajax({
+            url: '/getJxrs',
+            type: 'POST',
+            data: {zName: $("#zn_name option:selected").val()},
+            success: function (data) {
+                let options = optionsFormat(data);
+                jQuery('#worker_name').multiselect('dataprovider', options);
+            }
+        })
+
+    });
+
+    $('#sb_name').bind('change', function () {
+        console.log("设备名称关联到加载设备问题!");
+        setTimeout(function () {
+            $.ajax(
+                {
+                    url: '/wt',
+                    type: 'POST',
+                    data: {name: $('#sb_name').val() + '|' + $('#zn_name').val()},
+                    success: function (data) {
+                        $('#wtinsert').html(data);
+                        if ($('#NoSubmit').html() === "该设备不存在") {
+                            $('#NoSubmit').css("color", "red");
+                            $('#xj_submit').attr("disabled", "true");
+                            $('#xj_submit1').attr("disabled", "true");
+                            $('#tipWrong').removeAttr("hidden")
+
+                        } else {
+                            $("#xj_submit").attr("disabled", false);
+                            $("#xj_submit1").attr("disabled", false);
+                            $('#tipWrong').attr("hidden", "hidden")
+                        }
+                    }
+                }
+            )
+        }, 500)
+    });
+
+    //得到销记检查框状态选中. 得到id. 然后请求后端更新问题
+    function get_wtid() {
+        let Wtcheck = [];
+        let wtId = [];
+        $("input[name='name_xj']:checked").each(
+            function (i) {
+                Wtcheck[i] = $(this).val();
+            }
+        );
+        for (let i = 0; i < Wtcheck.length; i++) {
+            wtId.push(parseInt(Wtcheck[i]))
+        }
+        return wtId
+    }
+
+    //测试销记!
+
+
+    $('#xj_submit').on('click', function () {
+        testWtxj()
+    });
+    $('#xj_submit1').on('click', function () {
+        testWtxj()
+    });
+
+    $(document).ready(
+        function () {
+            $('#xj').addClass("active");
+            $.ajax({
+                url: '/getJxrs',
+                type: 'POST',
+                data: {zName: $("#zn_name option:selected").val()},
+                success: function (data) {
+                    let options = optionsFormat(data);
+                    jQuery('#worker_name').multiselect('dataprovider', options);
+                }
+            })
+        }
+    );
+
+    function optionsFormat(data) {
+        let arr = [];
+        for (let i in data) {
+            let o = {};
+            o.label = data[i];
+            o.value = data[i];
+            arr.push(o)
+        }
+        return arr
+    }
+
+    function testWtxj() {
+
+        $.ajax(
+            {
+                url: '/wtxj',
+                type: 'POST',
+                data: {wtIds: JSON.stringify(get_wtid())},
+                success: function (data) {
+                    console.log("更新成功")
+                }
+            }
+        )
+    }
+
+</script>
+</html>

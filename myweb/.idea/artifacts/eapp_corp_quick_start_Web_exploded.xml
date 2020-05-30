@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="eapp-corp-quick-start:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/eapp_corp_quick_start_Web_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="eapp-corp-quick-start" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="eapp-corp-quick-start/web/Web" />
+    </root>
+  </artifact>
+</component>

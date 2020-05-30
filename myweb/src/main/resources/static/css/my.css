@@ -1,0 +1,68 @@
+.autocomplete-suggestions {
+    background: #a1ddff;
+    border: 1px solid darkseagreen;
+    opacity: 100%;
+}
+
+.myValid {
+    font-size: smaller;
+    color: red;
+    background-color: yellow;
+}
+
+.multiselect-container { /*下拉框的样式*/
+    width: 220px;
+}
+
+.multiselect-container > li > a > label {
+    line-height: 28px;
+    font-size: 12px;
+}
+
+.multiselect-container > li > a > label > input[type='checkbox'] {
+    margin-top: 7px;
+}
+
+.multiselect-item.multiselect-all.active {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.multiselect-container.dropdown-menu li {
+    width: 30%;
+    display: inline-block;
+    justify-content: space-between;
+}
+
+.multiselect-container.dropdown-menu li:first-child {
+    width: 30%;
+}
+
+.multiselect.dropdown-toggle.btn.btn-default:link, .multiselect.dropdown-toggle.btn.btn-default:visited, .multiselect.dropdown-toggle.btn.btn-default:focus, .multiselect.dropdown-toggle.btn.btn-default:hover, .multiselect.dropdown-toggle.btn.btn-default:active, .btn-default.active, .btn-default:active, .open > .dropdown-toggle.btn-default {
+    background: #fff;
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: none;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+    background: #474752;
+}
+
+.multiselect-selected-text {
+    font-size: 13px;
+    font-family: '微软雅黑', '宋体';
+    width: 100%;
+    float: left;
+    text-align: left;
+}
+
+.btn.btn-default {
+    padding-right: 15px;
+}
+
+
+.TdColor {
+    background: #267cb7;
+    color: red;
+}
+

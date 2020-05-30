@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <script th:src="@{/js/jquery.autocomplete.js}" type="text/javascript"></script>
+    <link rel="text/css" th:href="@{/css/autocomplete.min.css}">
+    <script th:src="@{/js/bootstrap-select.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}">
+    <script th:src="@{/js/bootstrap-multiselect.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-multiselect.css}">
+    <link rel="stylesheet" th:href="@{/css/my.css}">
+    <meta charset="UTF-8">
+    <title>高级查询</title>
+</head>
+<body>
+<div th:insert="xj::nav"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="xj::menu"></div>
+        <div class="col-md-10">
+            <table class="table table-hover table-condensed table-bordered">
+                <legend>
+                    <strong>未检修设备查询</strong>
+                </legend>
+                <nav class="navbar navbar-fixed" role="navigation">
+                    <form>
+                        <div>
+                            <label for="zn">站名:</label>
+                            <select id="zn" name="zn">
+                                <option name="" th:text="${zhanName}" th:value="${zhanName}"></option>
+                                <option th:each="z:${zn}"
+                                        th:text="${z}"
+                                        th:value="${z}"
+                                ></option>
+                            </select>
+                            <label for="task">检修类型:</label>
+                            <select id="task" name="task">
+                                <option name="-:-" th:text="${jxType}" th:value="${jxType}"></option>
+                                <option name="年表任务" value="年表任务">年表任务</option>
+                                <option name="月表任务" value="月表任务">月表任务</option>
+                                <option name="周计划" value="周计划">周计划</option>
+                                <option name="其他整治" value="其他整治">其他整治</option>
+                            </select>
+                            <label for="zq">周期:</label>
+                            <select id="zq" name="query">
+                                <option name="" th:text="${zq}" th:value="${zq}"></option>
+                                <option value="今日">今日</option>
+                                <option value="本周">本周</option>
+                                <option value="本月">本月</option>
+                                <option name="年度" value="年度">年度</option>
+                            </select>
+                            <label for="sb"></label>
+                            <input id="sb" name="done" type="submit" value="查询">
+                            <input id="sb1" type="reset" value="重置">
+                            <!--                            <a id="excel" th:href="@{/outExcel/{zq}(zq=1)}">导出Excel </a>-->
+                        </div>
+                    </form>
+                </nav>
+                <thead>
+                <tr>
+
+                    <th>站名</th>
+                    <th>设备名称</th>
+                    <th>设备类型</th>
+                    <th>管辖工区</th>
+                    <th>线别</th>
+                    <th>检修天窗</th>
+                    <th>检修条件</th>
+                </tr>
+                </thead>
+                <tr th:each="p:${deviceList}">
+                    <th hidden scope="row" th:text="${p.id}"></th>
+                    <td th:text="${p.zname}"></td>
+                    <td th:text="${p.sbName}"></td>
+                    <td th:text="${p.sbType}"></td>
+                    <td th:text="${p.gxdw}"></td>
+                    <td th:text="${p.xb}"></td>
+                    <td th:text="${p.tc}"></td>
+                    <td th:text="${p.jxCondiction}"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    $('#sb1').bind("click", function () {
+        $("#zn").prepend("<option selected>-:-</option>");
+        $("#task").prepend("<option selected>-:-</option>");
+        $("#zq").prepend("<option selected>-:-</option>");
+        $("#flag").prepend("<option selected>-:-</option>")
+    })
+</script>
+
+</html>

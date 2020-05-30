@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <script th:src="@{/js/jquery.autocomplete.js}" type="text/javascript"></script>
+    <link rel="text/css" th:href="@{/css/autocomplete.min.css}">
+    <script th:src="@{/js/bootstrap-select.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}">
+    <script th:src="@{/js/bootstrap-multiselect.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-multiselect.css}">
+    <link rel="stylesheet" th:href="@{/css/my.css}">
+    <meta charset="UTF-8">
+    <title>检修设备情况</title>
+</head>
+<body>
+<div th:insert="xj::nav"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="xj::menu"></div>
+
+        <div class="col-md-10">
+            <div class="col-md-8">
+                <table class="table table-hover table-condensed table-bordered">
+                    <legend>
+                        <strong>检修记录</strong>
+                    </legend>
+                    <nav class="navbar navbar-fixed" role="navigation">
+                        <form>
+                            <div>
+                                <label for="zn">站名:</label>
+                                <select id="zn" name="zn">
+                                    <option name="" th:text="${zhanName}" th:value="${zhanName}"></option>
+                                    <option th:each="z:${repairList.get(0).znNames}"
+                                            th:text="${z}"
+                                            th:value="${z}"
+                                    ></option>
+                                </select>
+                                <label for="task">检修类型:</label>
+                                <select id="task" name="task">
+                                    <option name="-:-" th:text="${jxType}" th:value="${jxType}"></option>
+                                    <option name="年表任务" value="年表任务">年表任务</option>
+                                    <option name="月表任务" value="月表任务">月表任务</option>
+                                    <option name="周计划" value="周计划">周计划</option>
+                                    <option name="其他整治" value="其他整治">其他整治</option>
+                                </select>
+                                <label for="zq">周期:</label>
+                                <select id="zq" name="query">
+                                    <option name="" th:text="${zq}" th:value="${zq}"></option>
+                                    <option value="今日">今日</option>
+                                    <option value="本周">本周</option>
+                                    <option value="本月">本月</option>
+                                    <option name="年度" value="年度">年度</option>
+                                </select>
+                                <label for="flag">是否完成:</label>
+                                <select id="flag" name="flag">
+                                    <option name="" th:text="${flag}" th:value="${flag}"></option>
+                                    <option value="完成">完成</option>
+                                    <option value="未完成">未完成</option>
+                                </select>
+
+
+                                <label for="sb"></label>
+                                <input id="sb" name="done" type="submit" value="查询">
+                                <input id="sb1" type="reset" value="重置">
+                                <a id="excel" th:href="@{/outExcel/{zq}(zq=1)}">导出Excel </a>
+                            </div>
+                        </form>
+                    </nav>
+                    <thead>
+                    <tr>
+                        <!--                        <th>ID</th>-->
+                        <th>站名</th>
+                        <th>设备名称</th>
+                        <th>检修日期</th>
+                        <th>检修内容</th>
+                        <th>检修人</th>
+                        <th>检修类型</th>
+                        <th>是否已完成</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="p:${repairList}">
+                        <th hidden scope="row" th:text="${p.xj_id}"></th>
+                        <td th:text="${p.zn}"></td>
+                        <!--                        <td>-->
+                        <!--                            <a href="#" th:href="@{/wtQuery?(sbId=${p.sbId})}" th:text="${p.sb_name}"> </a>-->
+                        <!--                        </td>-->
+                        <td
+                                onclick="getWtQuery(this)"
+                                style="color: blue"
+                                th:attr="sbId=${p.sbId}"
+                                th:text="${p.sb_name}">
+                        </td>
+                        <td th:text="${p.jx_date}"></td>
+                        <td th:text="${p.jx_content}"></td>
+                        <td th:text="${p.jx_name}"></td>
+                        <td th:text="${p.jx_type}"></td>
+                        <td th:text="${p.xj?'是':'否'}"></td>
+                    </tr>
+                </table>
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link"><span th:text="共+${pageInfo.pages}+页"></span></a></li>
+                    <li class="page-item"><a class="page-link"><span th:text="第+${pageInfo.pageNum}+页"></span></a></li>
+                    <li class="page-item"><a class="page-link"
+                                             th:href="@{/xjList(pageNum=${1},zn=${zhanName},task=${jxType},query=${zq},flag=${flag})}">
+                        首页</a></li>
+                    <th:block th:each="num:${pageInfo.navigatepageNums}">
+                        <li class="page-item">
+                            <a class="page-link"
+                               th:href="@{/xjList(pageNum=${num},zn=${zhanName},task=${jxType},query=${zq},flag=${flag})}"
+                               th:text="${num}">
+
+                            </a></li>
+                    </th:block>
+                    <li class="page-item">
+                        <a class="page-link"
+                           th:href="@{/xjList(pageNum=${pageInfo.nextPage},zn=${zhanName},task=${jxType},query=${zq},flag=${flag})}">
+                            下一页</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <legend>
+                    <strong>遗留问题记录</strong>
+                </legend>
+                <!--                <nav class="navbar navbar-fixed" role="navigation">-->
+                <!--                </nav>-->
+                <div id="wtquery">
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    $('#zq').bind('change', function () {
+        let zq = $('#zq').val();
+        let ur = "";
+        switch (zq) {
+            case "-:-":
+                ur = '/outExcel/' + 1;
+                break;
+            case "今日":
+                ur = '/outExcel/' + 2;
+                break;
+            case "本周":
+                ur = '/outExcel/' + 3;
+                break;
+            case "本月":
+                ur = '/outExcel/' + 4;
+                break;
+            case "年度":
+                ur = '/outExcel/' + 5;
+                break
+        }
+        $('#excel').attr("href", ur)
+
+    });
+
+    $(document).ready(
+        function () {
+            {
+
+                $('#query').addClass("active");
+                let zq = $('#zq').val();
+                let ur = "";
+                switch (zq) {
+                    case "-:-":
+                        ur = '/outExcel/' + 1;
+                        break;
+                    case "今日":
+                        ur = '/outExcel/' + 2;
+                        break;
+                    case "本周":
+                        ur = '/outExcel/' + 3;
+                        break;
+                    case "本月":
+                        ur = '/outExcel/' + 4;
+                        break;
+                    case "年度":
+                        ur = '/outExcel/' + 5;
+                        break
+                }
+                $('#excel').attr("href", ur)
+
+            }
+        }
+    );
+    $('#sb1').bind("click", function () {
+        $("#zn").prepend("<option selected>-:-</option>");
+        $("#task").prepend("<option selected>-:-</option>");
+        $("#zq").prepend("<option selected>-:-</option>");
+        $("#flag").prepend("<option selected>-:-</option>")
+    });
+
+    function getWtQuery(data) {
+        let sbid = $(data).attr('sbid');
+        if (sbid !== undefined) {
+            $.ajax({
+                url: '/wtQuery',
+                type: 'GET',
+                data: {sbId: sbid},
+                success: function (data) {
+                    $('#wtquery').html(data)
+                }
+            })
+        }
+
+    }
+</script>
+</html>

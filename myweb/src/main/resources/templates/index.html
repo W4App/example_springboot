@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}" type="text/javascript"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <script th:src="@{/js/jquery.autocomplete.js}" type="text/javascript"></script>
+    <link rel="text/css" th:href="@{/css/autocomplete.min.css}">
+    <script th:src="@{/js/bootstrap-select.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}">
+    <script th:src="@{/js/bootstrap-multiselect.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-multiselect.css}">
+    <link rel="stylesheet" th:href="@{/css/my.css}">
+
+    <!--    <link rel="icon"  th:href="@{/favicon.ico}">-->
+    <!--    <link rel="shortcut icon" th:href="@{/sattic/favicon.ico}"/>-->
+
+    <meta charset="UTF-8">
+    <title>任务核查</title>
+</head>
+<body>
+<div th:insert="xj::nav"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div th:insert="xj::menu"></div>
+        <div class="col-md-10">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <form enctype="multipart/form-data" method="post" th:action="@{/excelImportDevice}">
+                        <label>选择设备模板文件</label>
+                        <input name="file" type="file">
+
+                        <input type="submit" value="上传">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
